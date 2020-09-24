@@ -1,0 +1,13 @@
+C:\Users\aaron\OneDrive\Documents\WTAMU Fall 2020\CIDM 3312\ASP Projects\LINQ\client\bin\Debug\netcoreapp3.1\client.exe
+C:\Users\aaron\OneDrive\Documents\WTAMU Fall 2020\CIDM 3312\ASP Projects\LINQ\client\bin\Debug\netcoreapp3.1\client.deps.json
+C:\Users\aaron\OneDrive\Documents\WTAMU Fall 2020\CIDM 3312\ASP Projects\LINQ\client\bin\Debug\netcoreapp3.1\client.runtimeconfig.json
+C:\Users\aaron\OneDrive\Documents\WTAMU Fall 2020\CIDM 3312\ASP Projects\LINQ\client\bin\Debug\netcoreapp3.1\client.runtimeconfig.dev.json
+C:\Users\aaron\OneDrive\Documents\WTAMU Fall 2020\CIDM 3312\ASP Projects\LINQ\client\bin\Debug\netcoreapp3.1\client.dll
+C:\Users\aaron\OneDrive\Documents\WTAMU Fall 2020\CIDM 3312\ASP Projects\LINQ\client\bin\Debug\netcoreapp3.1\client.pdb
+C:\Users\aaron\OneDrive\Documents\WTAMU Fall 2020\CIDM 3312\ASP Projects\LINQ\client\obj\Debug\netcoreapp3.1\client.csprojAssemblyReference.cache
+C:\Users\aaron\OneDrive\Documents\WTAMU Fall 2020\CIDM 3312\ASP Projects\LINQ\client\obj\Debug\netcoreapp3.1\client.AssemblyInfoInputs.cache
+C:\Users\aaron\OneDrive\Documents\WTAMU Fall 2020\CIDM 3312\ASP Projects\LINQ\client\obj\Debug\netcoreapp3.1\client.AssemblyInfo.cs
+C:\Users\aaron\OneDrive\Documents\WTAMU Fall 2020\CIDM 3312\ASP Projects\LINQ\client\obj\Debug\netcoreapp3.1\client.csproj.CoreCompileInputs.cache
+C:\Users\aaron\OneDrive\Documents\WTAMU Fall 2020\CIDM 3312\ASP Projects\LINQ\client\obj\Debug\netcoreapp3.1\client.dll
+C:\Users\aaron\OneDrive\Documents\WTAMU Fall 2020\CIDM 3312\ASP Projects\LINQ\client\obj\Debug\netcoreapp3.1\client.pdb
+C:\Users\aaron\OneDrive\Documents\WTAMU Fall 2020\CIDM 3312\ASP Projects\LINQ\client\obj\Debug\netcoreapp3.1\client.genruntimeconfig.cache
