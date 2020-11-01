@@ -47,7 +47,7 @@ namespace hw
                 var pilotTime = query1.OrderByDescending(p => p.Hour).ThenByDescending(p => p.Minute).ThenByDescending(p => p.Second).First();
 
                 /* Could not find TimeLogoff to subtract from TimeLogon for the exact time logged on, 
-                so I used the hours, minutes, seconds of TimeLogon to simulate outputting time logged on */
+                so I used the hours, minutes, seconds of TimeLogon to simulate outputting the time logged on */
                 Console.WriteLine($"{pilotTime.Name} (Pilot) has been logged on the longest at {pilotTime.Hour} hours, {pilotTime.Minute} minutes, {pilotTime.Second} seconds");
 
                 //Query 2
@@ -73,7 +73,7 @@ namespace hw
                 var controllerTime = query2.OrderByDescending(p => p.Hour).ThenByDescending(p => p.Minute).ThenByDescending(p => p.Second).First();
 
                 /* Could not find TimeLogoff to subtract from TimeLogon for the exact time logged on, 
-                so I used the hours, minutes, seconds of TimeLogon to simulate outputting time logged on */
+                so I used the hours, minutes, seconds of TimeLogon to simulate outputting the time logged on */
                 Console.WriteLine($"{controllerTime.Name} (Controller) has been logged on the longest at {controllerTime.Hour} hours, {controllerTime.Minute} minutes, {controllerTime.Second} seconds");
 
                 //Query 3
