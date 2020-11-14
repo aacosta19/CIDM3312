@@ -1,0 +1,2 @@
+2020-11-14 08:32:58.742 +09:00 [INF] VATSIM Library
+2020-11-14 08:33:20.936 +09:00 [INF] 798 client records were created
