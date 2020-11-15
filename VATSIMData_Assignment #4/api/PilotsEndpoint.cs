@@ -45,7 +45,7 @@ namespace api
             //I'm using callsign to grab a record and returning the altitude for that record. If there's more than one record, I'm returning the first one. 
             string responseText = null;
             string callsign = context.Request.RouteValues["callsign"] as string;
-            //find all positions records where the altitude is >= the altitude given from the url 
+          
             using (var db = new VatsimDbContext())
             {
                 if (callsign != null)
@@ -53,7 +53,7 @@ namespace api
                     Console.WriteLine($"{callsign}");
                     var _altitude = await db.Positions.Where(f => f.Callsign == callsign).ToListAsync();
 
-                    responseText = $"{_altitude[0].Realname}, Callsign: {_altitude[0].Callsign} is flying at the altitude {_altitude[0].Altitude} AGL";
+                    responseText = $"{_altitude[0].Realname} (Callsign: {_altitude[0].Callsign}) is flying at an altitude of {_altitude[0].Altitude} AGL";
                     await context.Response.WriteAsync($"{responseText}");
                 }
                 else
@@ -71,7 +71,7 @@ namespace api
             //I'm using callsign to grab a record and returning the groundspeed for that record. If there's more than one record, I'm returning the first one. 
             string responseText = null;
             string callsign = context.Request.RouteValues["callsign"] as string;
-            //find all positions records where the altitude is >= the altitude given from the url 
+           
             using (var db = new VatsimDbContext())
             {
                 if (callsign != null)
@@ -79,14 +79,14 @@ namespace api
                     Console.WriteLine($"{callsign}");
                     var _groundspeed = await db.Positions.Where(f => f.Callsign == callsign).ToListAsync();
 
-                    //Checking if the Pilot is not moving and on the ground 
+                    //Checking if the Pilot is not moving or on the ground 
                     if (Convert.ToInt32(_groundspeed[0].Groundspeed) == 0)
                     {
-                        responseText = $"{_groundspeed[0].Realname}, Callsign: {_groundspeed[0].Callsign} is on the ground at the moment.";
+                        responseText = $"{_groundspeed[0].Realname} (Callsign: {_groundspeed[0].Callsign}) is on the ground at the moment.";
                     }
                     else
                     {
-                        responseText = $"{_groundspeed[0].Realname}, Callsign: {_groundspeed[0].Callsign} is travelling at {_groundspeed[0].Groundspeed} KTAS";
+                        responseText = $"{_groundspeed[0].Realname} (Callsign: {_groundspeed[0].Callsign}) is travelling at {_groundspeed[0].Groundspeed} KTAS";
                     }
                     
                     await context.Response.WriteAsync($"{responseText}");
@@ -102,11 +102,11 @@ namespace api
         public static async Task LatitudeEndpoint(HttpContext context)
         {
             //TO DO
-            //Test: VPCAL
+            //Test: VPCAL & GLO9204
             //I'm using callsign to grab a record and returning the latitude for that record. If there's more than one record, I'm returning the first one. 
             string responseText = null;
             string callsign = context.Request.RouteValues["callsign"] as string;
-            //find all positions records where the altitude is >= the altitude given from the url 
+            
             using (var db = new VatsimDbContext())
             {
                 if (callsign != null)
@@ -126,7 +126,7 @@ namespace api
                         degrees = "S";
                     }
 
-                    responseText = $"{_latitude[0].Realname}, Callsign: {_latitude[0].Callsign} is travelling at latitude {_latitude[0].Latitude} {degrees}";
+                    responseText = $"{_latitude[0].Realname} (Callsign: {_latitude[0].Callsign}) is travelling at a latitude of {_latitude[0].Latitude} {degrees}";
                     await context.Response.WriteAsync($"{responseText}");
 
                 }
@@ -140,11 +140,11 @@ namespace api
         public static async Task LongitudeEndpoint(HttpContext context)
         {
             //TO DO
-            //Test: PPWMA
+            //Test: PPWMA & CXD079
             //I'm using callsign to grab a record and returning the longitude for that record. If there's more than one record, I'm returning the first one. 
             string responseText = null;
             string callsign = context.Request.RouteValues["callsign"] as string;
-            //find all positions records where the altitude is >= the altitude given from the url 
+           
             using (var db = new VatsimDbContext())
             {
                 if (callsign != null)
@@ -164,7 +164,7 @@ namespace api
                         degrees = "W";
                     }
 
-                    responseText = $"{_longitude[0].Realname}, Callsign: {_longitude[0].Callsign} is travelling at longitude {_longitude[0].Longitude} {degrees}";
+                    responseText = $"{_longitude[0].Realname} (Callsign: {_longitude[0].Callsign}) is travelling at a longitude of {_longitude[0].Longitude} {degrees}";
                     await context.Response.WriteAsync($"{responseText}");
 
                 }
