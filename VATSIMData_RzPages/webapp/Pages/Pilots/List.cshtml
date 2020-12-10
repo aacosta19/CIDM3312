@@ -1,0 +1,11 @@
+@page
+@model ListModel 
+@{
+    ViewBag.Title = "Pilots";
+}
+<ul class="list-group m-2"> 
+    @foreach (string pilot in Model.Pilots) 
+    { 
+        <li class="list-group-item">@pilot</li> 
+    } 
+</ul>

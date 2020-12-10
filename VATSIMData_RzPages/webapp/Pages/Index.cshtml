@@ -1,0 +1,20 @@
+@page "{cid?}/{callsign?}/{timelogon?}"
+@model IndexModel
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using VatsimLibrary.VatsimClientV1
+@using VatsimLibrary.VatsimDb
+
+@{
+    ViewBag.Title = Model.Pilot.Realname;
+}
+@* http://localhost:5000/1238470/LTX802/20201027201936 *@
+<p>Pilot: @Model.Pilot.Realname (@Model.Pilot.Cid)</p>
+<p>Pilot: @Model.Pilot.Callsign</p>
+<p>Pilot: @DateTime.Parse(Model.Pilot.TimeLogon)</p>
+
+@functions {
+    /*
+    while it is normal to include this in a "code behind" file, it is also pretty handy to be able to
+    define things for this page right here, like you would with JavaScript or PHP
+    */
+}

@@ -1,0 +1,14 @@
+@page "/noid"
+@model NotFoundModel
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using VatsimLibrary.VatsimClientV1
+@using VatsimLibrary.VatsimDb
+@{
+    ViewBag.Title = "No Matching ID";
+}
+<p>Showing the first records...</p>
+<ul class="list-group m-2">
+    @foreach (VatsimClientPilotV1 p in Model.Pilots) {
+        <li class="list-group-item">@p.Realname (CID: @p.Cid | Callsign: @p.Callsign | Logon: @p.TimeLogon )</li>
+    }
+</ul>

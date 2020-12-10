@@ -1,0 +1,102 @@
+  
+@page
+@model PilotSearchModel
+@{ 
+    /* Borrowing from this: https://docs.microsoft.com/en-us/aspnet/core/data/ef-rp/sort-filter-page?view=aspnetcore-3.1 */
+    ViewBag.Tile = "Pilots Search";
+}
+
+<div class="container">
+    <form asp-page="/Pilots/Search" method="GET">
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <p>
+                Find Pilot Cid, Callsign, or Real Name:
+                <label for="searchStringInput">Find Pilots</label>
+                <input type="text"  class="form-control" name="searchString" value="@Model.CurrentFilter" />
+                <small id="searchstringHelp" class="form-text text-muted">Search for pilots and flights</small>
+                <input type="submit" value="Search" class="btn btn-primary" /> |
+                <a asp-page="/Pilots/Search">Back to full List</a>
+            </p>
+        </div>
+    </form>
+
+    <div class="m-2">
+        <table class="table table-sm table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        CID
+                    </th>
+                    <th>
+                        <a asp-page="/Pilots/Search" 
+                            asp-route-sortOrder="@Model.RealnameSort"
+                            asp-route-currentFilter="@Model.CurrentFilter">
+                            Real Name
+                        </a>
+                    </th>
+                    <th>
+                        <a asp-page="/Pilots/Search" 
+                            asp-route-sortOrder="@Model.CallsignSort"
+                            asp-route-currentFilter="@Model.CurrentFilter">
+                            Callsign
+                        </a>
+                    </th>
+                    <th>
+                        <a asp-page="/Pilots/Search" 
+                            asp-route-sortOrder="@Model.TimelogonSort"
+                            asp-route-currentFilter="@Model.CurrentFilter">
+                            Time Logon
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Pilots)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(p => item.Cid)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(p => item.Realname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(p => item.Callsign)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(p => item.TimeLogon)
+                        </td>
+                        <td>
+                            <a asp-page="/Pilots/Detail" 
+                                asp-route-cid="@item.Cid"
+                                asp-route-callsign="@item.Callsign"
+                                asp-route-timelogon="@item.TimeLogon"
+                                class="btn btn-info">Details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @{
+            var prevDisabled = !Model.Pilots.HasPreviousPage ? "disabled" : "";
+            var nextDisabled = !Model.Pilots.HasNextPage ? "disabled" : "";
+        }
+
+        <a asp-page="/Pilots/Search"
+            asp-route-sortOrder="@Model.CurrentSort"
+            asp-route-pageIndex="@(Model.Pilots.PageIndex - 1)"
+            asp-route-currentFilter="@Model.CurrentFilter"
+            class="btn btn-primary @prevDisabled">
+            Previous
+        </a>
+        <a asp-page="/Pilots/Search"
+            asp-route-sortOrder="@Model.CurrentSort"
+            asp-route-pageIndex="@(Model.Pilots.PageIndex + 1)"
+            asp-route-currentFilter="@Model.CurrentFilter"
+            class="btn btn-primary @nextDisabled">
+            Next
+        </a>            
+    </div>
+</div> @* container *@

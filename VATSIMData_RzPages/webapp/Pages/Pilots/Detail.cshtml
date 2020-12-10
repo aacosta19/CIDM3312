@@ -1,0 +1,91 @@
+@page
+@model PilotDetailModel
+@{ 
+    Layout = null;
+    /* Borrowing from this: https://docs.microsoft.com/en-us/aspnet/core/data/ef-rp/sort-filter-page?view=aspnetcore-3.1 */
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="/lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+  <h1>Pilot Details</h1>
+  <table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>CID</th>
+        <th>Pilot's Name</th>
+        <th>Callsign</th>
+        <th>TimeLogon</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>@Model.Pilot.Cid</td>
+        <td>@Model.Pilot.Realname</td>
+        <td>@Model.Pilot.Callsign</td>
+        <td>@Model.Pilot.TimeLogon</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+    <div class="container">
+         <hr>
+  <h2>Pilot Positions</h2>
+  @*Source: https://www.w3schools.com/bootstrap4/tryit.asp?filename=trybs_table_dark_hover&stacked=h*@
+  <p>The following table shows a pilot's position at different times: </p>            
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr class="table-primary text-dark">
+                    <th>Timestamp</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Altitude</th>
+                    <th>Groundspeed</th>
+      </tr>
+                @foreach (var p in Model.Position) {
+                <tr>
+                    <td>@p.TimeStamp</td>
+                    <td>@p.Latitude°</td>
+                    <td>@p.Longitude°</td>
+                    <td>@p.Altitude ft AGL/MSL</td>
+                    <td>@p.Groundspeed Knts</td>
+                </tr>
+                }
+      </table>
+      <br></br>
+      <h2>Additional Pilot Information</h2>
+      <table class="table table-dark table-hover">
+      <tr class="table-primary text-dark">
+            <th>Fastest Groundspeed</th>
+            <th>Highest Altitude</th>
+            <th>Furthest East Coordinate</th>
+            <th>Furthest South Coordinate</th>
+            <th>Most Departed Airport</th>
+      </tr>
+      <tr>
+            <td>@Model.fastestSpeed KTAS</td>
+            <td>@Model.highestAlt ft AGL/MSL</td>
+            <td>@Model.longitude°</td>
+            <td>@Model.latitude°</td>
+            <td>@Model.Pilot.Realname Departed @Model.depAirport @Model.depCount time(s)</td>
+      </tr>
+    </thead>
+    <br><br>
+  </table>
+</div>
+</body>
+</html>
+
+@* I have revealed the Server JS code so that you can download and run the project code.
+
+Notes on how to use the endpoints are in the README for the CIDM3372/Project folder in the repo: https://github.com/ahuimanu/CIDM3372/tree/master/Project
+
+For the sunrise/sunset endpoint, try different lat/lon combos
+For the addsmetar, here is a list of ICAO codes for airports around the world: https://www.airport-data.com/world-airports/icao-code/A.html
+I will next reveal most of the client-side JS code and make it clear what you are expected to fill in.
+In the interest of a more complete example, I am leaving you not more than 5% of the work to complete. *@
+
